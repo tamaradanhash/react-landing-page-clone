@@ -4,6 +4,14 @@ import logo from './logo.png';
 import background from './background.svg';
 import videoBackground from './videoBackground.svg';
 import video from './video.mp4';
+import circle from './circle.svg';
+import x from './X.svg';
+import todoTasks from './to-do-tasks-left.svg';
+import notTodoTasks from './not-to-do-tasks.svg';
+import arrowRight from './arrowRight.svg';
+import mobileDevice from './mobile-device.svg';
+import heartIcon from './heartIcon.svg';
+import twitterIcon from './twitterIcon.svg';
 
 const Header = styled.header`
   margin-left: 60px;
@@ -150,8 +158,150 @@ const IndexToDoSides = styled.div`
   border-radius: 10px;
   text-align: left;
   padding: 32px;
+  > h3 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.25em;
+  }
+  > p {
+    color: #8f99a7;
+    font-size: 24px;
+    margin-top: 16px;
+    line-height: 1.25em;
+  }
+  > img:first {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 40px;
+  }
+  > img:last-child {
+    margin-top: 40px;
+    width: 100%;
+  }
 `;
-
+const IndexMobileWrapper = styled.div`
+  text-align: left;
+  background: #eef3fb;
+  width: 100%;
+  margin: auto;
+`;
+const IndexMobileContainer = styled.div`
+  display: grid;
+  grid-template-columns: 40% 40%;
+  justify-content: center;
+  justify-items: center;
+  max-height: 600px;
+  margin-top: 100px;
+`;
+const IndexMobileContent = styled.div`
+  margin-top: 100px;
+  > h1 {
+    font-size: 55px;
+    line-height: 1.1em;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #292f36;
+  }
+  > p {
+    color: #8f99a7;
+    font-size: 24px;
+    margin-top: 16px;
+    line-height: 1.25em;
+  }
+  > form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    > input {
+      font-size: 18px;
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid #bed1ed;
+      width: calc(100% - 62px);
+      height: 50px;
+    }
+    > button {
+      background-color: #007bff;
+      width: 50px;
+      border-radius: 5px;
+      margin: 0 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`;
+const IndexAnalyticsWrapper = styled.div`
+  background: #fff;
+  width: 100%;
+  padding: 100px 0;
+`;
+const IndexAnalyticsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > h1 {
+    font-size: 55px;
+    line-height: 1.1em;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #292f36;
+  }
+  > p {
+    color: #8f99a7;
+    font-size: 24px;
+    margin-top: 16px;
+    line-height: 1.25em;
+  }
+  > div {
+    min-width: 60%;
+  }
+`;
+const AnimationLine = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0px auto;
+  outline: none;
+`;
+const Footer = styled.footer`
+  background-color: #eef3fb;
+  box-sizing: border-box;
+  font-size: 20px;
+`;
+const FooterContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  padding: 125px 50px;
+  grid-template-columns: 1fr 250px 100px;
+  grid-column-gap: 25px;
+`;
+const FooterLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > p {
+    font-size: 24px;
+    font-weight: 500;
+    a {
+      color: #007bff;
+    }
+  }
+`;
+const FooterMid = styled.div`
+  display: grid;
+  grid-row-gap: 10px;
+  > a {
+    color: #007bff;
+  }
+`;
 export default function App() {
   return (
     <>
@@ -213,93 +363,76 @@ export default function App() {
                 Set goals, simply
               </HeroTextH1>
             </div>
-            <IndexToDoSides>
-              <img
-                className="icon-circle"
-                src="/static/media/circle.9be19c20.svg"
-                alt="A Green Circle"
-              />
+            <IndexToDoSides style={{ gridColumn: '2', marginLeft: ' 100px' }}>
+              <img src={circle} alt="A Green Circle" />
               <h3>To-Do's</h3>
               <p>
                 Trying to learn Spanish? Want to read for 30 minutes a day?
                 Manage daily habits and achieve your goals.
               </p>
-              <img
-                className="progress"
-                src="/static/media/to-do-tasks.012834f6.svg"
-                alt="An example list of to-dos"
-              />
+              <img src={todoTasks} alt="An example list of to-dos" />
             </IndexToDoSides>
-            <div className="index-todo__right">
-              <img
-                className="icon-circle"
-                src="/static/media/X.7cfbb038.svg"
-                alt="A Red X"
-              />
+            <IndexToDoSides>
+              <img src={x} alt="A Red X" />
               <h3>Not-To-Do's</h3>
               <p>
                 Find yourself spending hours on Instagram? Track what is
                 stopping you from achieving your goals and master better daily
                 habits.
               </p>
-              <img
-                className="progress"
-                src="/static/media/not-to-do-tasks.6d9a4454.svg"
-                alt="An example list of no-to-dos"
-              />
-            </div>
+              <img src={notTodoTasks} alt="An example list of no-to-dos" />
+            </IndexToDoSides>
             <div></div>
           </IndexToDoContainer>
-          <a href="/signup">
-            <button className="index__ctaButton-alt">Try for Free</button>
+          <a
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            href="/signup"
+          >
+            <CenterSignupButton
+              style={{ backgroundColor: '#fff', color: '#017bff' }}
+            >
+              Try for Free
+            </CenterSignupButton>
           </a>
         </IndexToDoWrapper>
-        <div className="index-mobile__wrapper">
-          <div className="index-mobile__container">
-            <div className="index-mobile__content">
+        <IndexMobileWrapper>
+          <IndexMobileContainer>
+            <IndexMobileContent>
               <h1>Stay closer to your daily goals</h1>
               <p>
                 Build positive habits into your daily life and start achieving
                 your goals faster with the mobile app - coming soon to iOS &amp;
                 Android.
               </p>
-              <form className="index-mobile__form" />
-              <input type="text" placeholder="Enter email for early access" />
-              <button>
-                <img
-                  src="/static/media/arrowRight.33e98b71.svg"
-                  alt="An arrow pointing right"
-                />
-              </button>
-            </div>
-            <div className="index-mobile__image">
+              <form>
+                <input type="text" placeholder="Enter email for early access" />
+                <button>
+                  <img src={arrowRight} alt="An arrow pointing right" />
+                </button>
+              </form>
+            </IndexMobileContent>
+            <div>
               <img
-                src="/static/media/mobile-device.512ec9b6.svg"
+                style={{ maxWidth: '400px' }}
+                src={mobileDevice}
                 alt="A mockup of the mobile app"
               />
             </div>
-          </div>
-        </div>
-        <div className="index-analytics__wrapper">
-          <div className="index-analytics__container">
+          </IndexMobileContainer>
+        </IndexMobileWrapper>
+        <IndexAnalyticsWrapper>
+          <IndexAnalyticsContainer>
             <h1>Analytics for your life</h1>
             <p>
               Visualize the data behind your goal setting and watch as your "I
               wish I could's" become reality
             </p>
-            <div className="index-analytics__image">
-              <div
-                title=""
+            <div>
+              <AnimationLine
+                title
                 role="button"
                 aria-label="animation"
                 tabindex="0"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  overflow: 'hidden',
-                  margin: '0px auto',
-                  outline: 'none',
-                }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +443,7 @@ export default function App() {
                   style={{
                     width: '100%',
                     height: '100%',
-                    /* transform: translate3d ('0px')('0px') ('0px')*/
+                    transform: "translate3d('0px')('0px')('0px')",
                   }}
                 >
                   <defs>
@@ -343,7 +476,7 @@ export default function App() {
                         stroke-linecap="butt"
                         stroke-linejoin="round"
                         stroke-miterlimit="4"
-                        d=""
+                        d
                         transform="matrix(1,0,0,1,-76.93199920654297,0)"
                         opacity="1"
                         style={{ display: 'inherit' }}
@@ -1014,23 +1147,20 @@ export default function App() {
                     </g>
                   </g>
                 </svg>
-              </div>
+              </AnimationLine>
             </div>
             <a href="/signup">
-              <button className="index__ctaButton">Try for Free</button>
+              <CenterSignupButton>Try for Free</CenterSignupButton>
             </a>
-          </div>
-        </div>
+          </IndexAnalyticsContainer>
+        </IndexAnalyticsWrapper>
       </Hero>
-      <footer class="footer">
-        <div class="footer__container">
-          <div class="footer__left">
-            <p class="footer__madeWith">
+      <Footer>
+        <FooterContainer>
+          <FooterLeft>
+            <p>
               Made with
-              <img
-                src="/static/media/heartIcon.6576984d.svg"
-                alt="Heart icon"
-              />
+              <img src={heartIcon} alt="Heart icon" />
               by
               <a
                 href="https://www.linkedin.com/in/danny-sapio-035481108/"
@@ -1048,27 +1178,27 @@ export default function App() {
                 Wilson
               </a>
             </p>
-            <p class="footer__copyright">Copyright © 2020</p>
-          </div>
-          <div class="footer__mid">
+            <p style={{ fontSize: '16px', color: '#8f99a7' }}>
+              Copyright © 2020
+            </p>
+          </FooterLeft>
+          <FooterMid>
             <a href="/privacy">privacy Policy</a>
             <a href="/terms">Terms of Service</a>
             <a href="mailto:hello@tryconfetti.io">hello@tryconfetti.io</a>
-          </div>
-          <div class="footer__right">
+          </FooterMid>
+          <div>
             <a
               href="https://twitter.com/confettihabits"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ color: '#007bff' }}
             >
-              <img
-                src="/static/media/twitterIcon.5ddc9d89.svg"
-                alt="Twitter icon"
-              />
+              <img src={twitterIcon} alt="Twitter icon" />
             </a>
           </div>
-        </div>
-      </footer>
+        </FooterContainer>
+      </Footer>
     </>
   );
 }
